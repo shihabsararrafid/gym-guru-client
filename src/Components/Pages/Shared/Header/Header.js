@@ -5,6 +5,7 @@ import bar from '../../../../images/bars-solid.svg';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import CustomLink from '../../../CustomLink/CustomLink';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -20,23 +21,23 @@ const Header = () => {
 
             <nav className={` lg:flex ${open ? 'flex' : 'hidden'} ${open ? 'flex-col' : 'hidden'} flex-row ${open ? 'w-[70px]' : 'hidden'} lg:w-[50%] text-xl uppercase font-bold justify-around`}>
                 <div className='group'>
-                    <Link className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/home">Home</Link>
+                    <CustomLink className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/home">Home</CustomLink>
                     <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
                 </div>
                 <div className='group'>
-                    <Link className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/services">Services</Link>
+                    <CustomLink className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/services">Services</CustomLink>
                     <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
                 </div>
                 <div className='group'>
-                    <Link className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/about">About</Link>
+                    <CustomLink className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/about">About</CustomLink>
                     <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
                 </div>
                 <div className='group'>
-                    <Link className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/blogs">Blogs</Link>
+                    <CustomLink className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/blogs">Blogs</CustomLink>
                     <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
                 </div>
                 <div className='group'>
-                    <Link className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/login">Login</Link>
+                    <CustomLink className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/login">Login</CustomLink>
                     <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
                 </div>
             </nav>
@@ -48,10 +49,10 @@ const Header = () => {
 
 
 
-            {/* <Link to="/services">Services</Link>
-                <Link to="/about">About</Link>
-                <Link to="/blogs">Blog</Link>
-                <Link to="/login">Login</Link> */}
+            {/*<CustomLink to="/services">Services</CustomLink>
+               <CustomLink to="/about">About</CustomLink>
+               <CustomLink to="/blogs">Blog</CustomLink>
+               <CustomLink to="/login">Login</CustomLink> */}
 
 
 
