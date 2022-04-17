@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <div className='mt-10'>
 
-            <form className='w-[100%]md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto h-[900px]' >
+            <form className='w-[100%] md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto h-[900px]' >
                 <div>
                     <h1 className='font-bold text-center '>To Continue, log in to <span className='text-[#6C05F6]'>GYM GURU</span> </h1>
                     <button className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={google} alt="" /> <span>CONTINUE WITH TO GOOGLE</span></button>
