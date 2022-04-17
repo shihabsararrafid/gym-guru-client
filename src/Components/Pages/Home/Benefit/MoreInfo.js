@@ -15,6 +15,7 @@ const MoreInfo = () => {
                     <img className='w-[120px] mt-5 block mx-auto' src={sixPack} alt="" />
                     <p className='p-7'>Being healthy is always great. It’s good for your body and it’s just good for your overall health and longevity.On another note, as dumb as it may sound, having a nice body can help you out more than you would think.</p>
 
+
                 </div>
                 <div className=' rounded-lg shadow-2xl shadow-gray-400'>
                     <h1 className='text-2xl text-center text-[#6C05F6] font-bold'>See your friends</h1>
