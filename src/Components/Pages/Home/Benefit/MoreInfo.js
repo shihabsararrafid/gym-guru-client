@@ -9,7 +9,7 @@ const MoreInfo = () => {
         <div className='mx-7 my-10'>
             <h1 className='text-4xl font-bold mb-10'>  Why should you go to <span className='uppercase text-[#6C05F6]'>gym </span> ?</h1>
 
-            <div className='grid grid-cols-3 gap-10'>
+            <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-10'>
                 <div className=' rounded-lg shadow-2xl shadow-gray-400'>
                     <h1 className='text-2xl text-center text-[#6C05F6] font-bold'>Have a nice body</h1>
                     <img className='w-[120px] mt-5 block mx-auto' src={sixPack} alt="" />

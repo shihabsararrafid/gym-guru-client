@@ -1,8 +1,9 @@
 import React from 'react';
 import Carousel from 'react-elastic-carousel';
 import Item from '../../../Item';
+import Services from '../../Services/Services/Services';
 import Banner from '../Banner/Banner';
-import MoreInfo from '../MoreInfo/MoreInfo';
+import MoreInfo from '../Benefit/MoreInfo';
 import img1 from './../../../../images/Carousel/anastase-maragos-7kEpUPB8vNk-unsplash-min.jpg';
 import img2 from './../../../../images/Carousel/charles-gaudreault-xXofYCc3hqc-unsplash-min.jpg';
 import img3 from './../../../../images/Carousel/karsten-winegeart-0Wra5YYVQJE-unsplash-min.jpg';
@@ -50,6 +51,7 @@ const Home = () => {
             </Carousel> */}
 
             <Banner></Banner>
+            <Services></Services>
             <MoreInfo></MoreInfo>
         </div >
     );
