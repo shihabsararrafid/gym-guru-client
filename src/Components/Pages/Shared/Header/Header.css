@@ -1,0 +1,3 @@
+.link:hover .link>div {
+    transform: translate(0);
+}
