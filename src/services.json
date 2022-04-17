@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "name": "body building",
+        "price": "99",
+        "img": "https://i.ibb.co/BGfggBV/muscles.png",
+        "deatils": "Bodybuilding is the use of progressive resistance exercise to control and develop one's muscles by muscle hypertrophy for aesthetic purposes.I will help you to build your muscle strong."
+    },
+    {
+        "id": "2",
+        "name": "cardio work",
+        "price": "45",
+        "img": "https://i.ibb.co/jkr08cc/treadmill.png",
+        "deatils": "Cardio exercise, which is sometimes referred to as aerobic exercise, is any rhythmic activity that raises your heart rate into your target heart rate zone. This is specially for the bulky people who has more fat and weight in his body."
+    },
+    {
+        "id": "3",
+        "name": "dev muscles",
+        "price": "59",
+        "img": "https://i.ibb.co/8xB21cm/exercising-with-gymnastic-ball.png",
+        "deatils": "In this case , we specially  care at preserving muscle . Sometimes , when we do irregular and unhealthy diet chart to lose our weight then we face a problem that our muscle may be lost without losing the fat. In this case , we specially care about that type of people."
+    },
+    {
+        "id": "4",
+        "name": "dynamo fitness",
+        "price": "85",
+        "img": "https://i.ibb.co/tZsqQxh/stats.png",
+        "deatils": "This is specially for the people who want to  achieve their goal to be fit. To lose weigth it is more important to control the food . In survey , it has been said that losing weight 70-80% dependent on food and rest percentage dependent on exercise. I will provide you the exact food chart as your need."
+    }
+]

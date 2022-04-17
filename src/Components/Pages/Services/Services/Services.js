@@ -5,7 +5,7 @@ import dev from './../../../../images/services/exercising-with-gymnastic-ball.pn
 import chart from './../../../../images/services/stats.png';
 const Services = () => {
     return (
-        <div className='bg-black text-white'>
+        <div id='services' className='bg-black text-white'>
             <div className='font-semibold p-7'>
                 <h1 className='text-4xl text-center'>WHY CHOICE ME ?</h1>
                 <p className='text-lg text-center'>I am offering a large type of services with a less amount of money. I assure you that I will be with you untill you work hard.</p>
