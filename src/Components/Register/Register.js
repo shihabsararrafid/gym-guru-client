@@ -11,7 +11,7 @@ const Register = () => {
     return (
         <div className='mt-10'>
 
-            <form className='w-[500px] login border-2 mb-10 mx-auto rounded-lg h-[1200px]' >
+            <form className=' w-[100%]md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto md:h-[1200px]' >
                 {/* Buttons for social login */}
 
 

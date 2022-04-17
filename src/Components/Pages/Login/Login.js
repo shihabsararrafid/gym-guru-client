@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <div className='mt-10'>
 
-            <form className='w-[500px] login border-2 mb-10 mx-auto rounded-lg h-[900px]' >
+            <form className='w-[100%]md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto h-[900px]' >
                 <div>
                     <h1 className='font-bold text-center '>To Continue, log in to <span className='text-[#6C05F6]'>GYM GURU</span> </h1>
                     <button className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={google} alt="" /> <span>CONTINUE WITH TO GOOGLE</span></button>
@@ -36,7 +36,7 @@ const Login = () => {
                 </div>
                 <div className='flex items-center justify-between'>
                     <h1 className='text-center hover:text-red-500'>Forgot Password?</h1>
-                    <button className='px-16 block mr-0 justify-end  w-[90%] lg:w-[40%]  my-6 text-xl py-4 border-2 border-[#6C05F6] bg-[#6C05F6] text-white rounded-full'>LOG IN</button>
+                    <button className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>LOG IN</button>
                 </div>
 
 
