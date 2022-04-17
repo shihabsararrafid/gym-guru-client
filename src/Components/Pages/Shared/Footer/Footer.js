@@ -43,7 +43,7 @@ const Footer = () => {
 
                 </div>
                 <div className='text-white bg-black'>
-                    <p>&copy; Maco the Gym trainer </p>
+                    <p>&copy; Marco the Gym trainer </p>
                     <p>{year}</p>
                 </div>
             </div>

@@ -14,7 +14,7 @@ const Header = () => {
             <div className="left-nav flex mx-8 items-center">
 
                 <img className='rounded-full w-[80px]' src={gymLogo} alt="" />
-                <h1 className='lg:text-4xl text-2xl  mx-5 font-semibold'>GYM KING</h1>
+                <h1 className='lg:text-4xl text-2xl text-[white]  mx-5 font-bold'>GYM GURU</h1>
             </div>
 
 
