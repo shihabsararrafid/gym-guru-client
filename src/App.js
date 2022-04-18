@@ -10,6 +10,7 @@ import Home from './Components/Pages/Home/Home/Home';
 import Footer from './Components/Pages/Shared/Footer/Footer';
 import Register from './Components/Register/Register';
 import Checkout from './Components/Pages/Checkout/Checkout';
+import Confirmation from './Components/Pages/Confirmation/Confirmation';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/checkout' element={<Checkout></Checkout>}></Route>
+        <Route path='/confirmation' element={<Confirmation></Confirmation>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
