@@ -5,6 +5,8 @@ import github from './../../../images/github.png';
 import facebook
     from './../../../images/facebook.png';
 import React, { useState } from 'react';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -14,6 +16,9 @@ import GoogleSignIn from './GoogleSignIn/GoogleSignIn';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Login = () => {
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+        auth
+    );
     const [wrongmessage, setWrongmessage] = useState('');
     const [email, setEmail] = useState('');
     let navigate = useNavigate();
@@ -143,7 +148,9 @@ const Login = () => {
                     <input onChange={(e) => setPassword(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' type="password" name="" id="" />
                 </div>
                 <div className='flex items-center justify-between'>
-                    <h1 className='text-center hover:text-red-500'>Forgot Password?</h1>
+                    <h1 onClick={(e) => {
+                        sendPasswordResetEmail(email);
+                    }} className='text-center hover:text-red-500'>Forgot Password?</h1>
                     <button onClick={emailLogIn} className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>LOG IN</button>
                 </div>
 
