@@ -150,7 +150,7 @@ const Login = () => {
                 <div className='flex items-center justify-between'>
                     <h1 onClick={(e) => {
                         sendPasswordResetEmail(email);
-                    }} className='text-center hover:text-red-500'>Forgot Password?</h1>
+                    }} className='text-center cursor-pointer hover:text-red-500'>Forgot Password?</h1>
                     <button onClick={emailLogIn} className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>LOG IN</button>
                 </div>
 
