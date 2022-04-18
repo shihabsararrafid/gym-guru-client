@@ -11,7 +11,7 @@ const Confirmation = () => {
 
 
     return (
-        <div className='w-1/2 mb-10 mx-auto'>
+        <div className='lg:w-1/2 md:w-3/4 w-full mb-10 mx-auto'>
             <h1 className='text-3xl text-violet-700 my-10 text-center'>Please provide your detail info</h1>
 
 
@@ -29,8 +29,9 @@ const Confirmation = () => {
                 {errors.phoneNumber && <span className='text-red-600'><FontAwesomeIcon icon={faXmarkCircle}></FontAwesomeIcon> Please Give Valid Mobile Number <span className='text-green-700'>(Only NUmber is valid)</span> </span>}
 
 
+
                 <h1 className='text-md  font-bold'>Address:</h1>
-                {/* Phone Number section with validation */}
+                {/* Address section with validation */}
                 <input placeholder='Enter Your Detail Address' className='w-[90%] rounded-lg outline-gray-600 h-[50px] mb-4 block border-2 border-indigo-500'  {...register("Address", { required: true })} />
                 {errors.Address && <span className='text-red-600'><FontAwesomeIcon icon={faXmarkCircle}></FontAwesomeIcon> This field is required</span>}
 
@@ -47,7 +48,7 @@ const Confirmation = () => {
 
 
                 {/* Submit Button with onsubmit hook function */}
-                <input className='text-center block   w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black hover:text-[#6C05F6] hover:border-[#6C05F6] bg-white text-black rounded-full' type="submit" />
+                <input className='text-center block   w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold ml-5 border-black hover:text-[#6C05F6] duration-300 hover:border-[#6C05F6] bg-violet-700 hover:bg-white text-white   rounded-full' type="submit" />
 
 
             </form>
