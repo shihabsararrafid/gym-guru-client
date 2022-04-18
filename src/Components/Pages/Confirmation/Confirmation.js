@@ -28,7 +28,7 @@ const Confirmation = () => {
 
     return (
         <div className='lg:w-1/2 md:w-3/4 relative w-full mt-0 mb-10 mx-auto'>
-            <div id="msg" className={`border-[1px] mx-auto right-1/2  mt-0 top-0 w-[300px] rounded-lg flex items-center justify-center  border-violet-500`}>
+            <div id="msg" className={`border-[1px] mx-auto right-1/2  mt-0 top-0 w-[300px] rounded-lg hidden items-center justify-center  border-violet-500`}>
                 <h1 className='bg-violet-700 text-white w-full text-center rounded-lg px-5 py-3  font-bold text-lg'>Thanks For Your Booking</h1>
             </div>
             <h1 className='text-3xl text-violet-700 mb-10 mt-16 text-center'>Please provide your detail info</h1>
