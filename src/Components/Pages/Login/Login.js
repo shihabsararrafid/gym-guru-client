@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../../../firebase.init';
+import right from './../../../images/right.jpg';
 
 const Login = () => {
-    let wrongmessage;
+    const [wrongmessage, setWrongmessage] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const emailLogIn = (e) => {
@@ -20,20 +21,59 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user)
+                if (user) {
+                    setTimeout(() => {
+                        const msg = document.getElementById('success');
+                        msg.style.display = 'flex';
+
+                    }, 100)
+
+                    setTimeout(() => {
+                        const msg = document.getElementById('success');
+                        msg.style.display = 'none';
+
+                    }, 9000)
+                }
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 const message = errorMessage.split('/')[1];
-                wrongmessage = message.slice(0, -2);
+
+                setWrongmessage(message.slice(0, -2));
+                if (message) {
+                    setTimeout(() => {
+                        const msg = document.getElementById('wrong');
+                        msg.style.display = 'flex';
+
+                    }, 100)
+
+                    setTimeout(() => {
+                        const msg = document.getElementById('wrong');
+                        msg.style.display = 'none';
+
+                    }, 9000)
+                }
             });
     }
+    console.log(wrongmessage);
+
     return (
         <div className='mt-10'>
+            <div id='success' className='w-[200px] hidden  h-[35px] lg:top-[86px] top-[95px] left-1/2 lg:left-[500px]
+             absolute items-center font-semibold form-container bg-white justify-evenly  border-[2px] border-[#6C05F6] rounded-lg '>
 
-            <form className='w-[100%] md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto h-[900px]' >
+                <img className='w-[30px]' src={right} alt="" />   <span>Log In Succesful</span>
+
+            </div>
+            <div id='wrong' className='w-[200px] hidden  h-[35px] lg:top-[86px] top-[95px] left-1/2 lg:left-[500px]
+             absolute items-center font-semibold form-container bg-red-600 justify-evenly  rounded-lg '>
+
+                <span className='uppercase text-white'>{wrongmessage}</span>
+
+            </div>
+            <form className='w-[100%] md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto lg:h-[900px]' >
                 <div>
                     <h1 className='font-bold text-center '>To Continue, log in to <span className='text-[#6C05F6]'>GYM GURU</span> </h1>
                     <button className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={google} alt="" /> <span>CONTINUE WITH TO GOOGLE</span></button>
@@ -41,6 +81,7 @@ const Login = () => {
                     <button className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={github} alt="" /><span>CONTINUE WITH TO GITHUB</span>
                     </button>
                 </div>
+
                 <div className='flex items-center justify-center'>
                     <hr className='w-[40%] h-[2px] bg-[#6C05F6]' /><span className='block mx-3 font-bold'>OR</span><hr className='w-[40%] h-[2px] bg-[#6C05F6]' />
                 </div>
