@@ -1,17 +1,96 @@
 import { faContactBook, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import google from './../../images/google.png';
 import github from './../../images/github.png';
 import facebook
     from './../../images/facebook.png';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import auth from './../../firebase.init';
+import wrong from './../../images/wrong.png';
+import right from './../../images/right.jpg'
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { async } from '@firebase/util';
 const Register = () => {
+    // const [
+    //     createUserWithEmailAndPassword,
+    //     user,
+
+
+    // ] = useCreateUserWithEmailAndPassword(auth);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [confirmPass, setConfirmPass] = useState('');
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+    const userWithEmail = () => {
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(async res => {
+                if (res) {
+                    console.log(res.user);
+                    await updateProfile({ displayName: name });
+                    console.log(res.user);
+                    setTimeout(() => {
+                        const msg = document.getElementById('success');
+                        msg.style.display = 'flex';
+
+                    }, 100)
+
+                    setTimeout(() => {
+                        const msg = document.getElementById('success');
+                        msg.style.display = 'none';
+
+                    }, 9000)
+                    setTimeout(() => {
+                        navigate('/login');
+                    }, 10000)
+                }
+
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
+
+    const signUp = (e) => {
+        e.preventDefault();
+
+        if (password !== confirmPass) {
+            setTimeout(() => {
+                const match = document.getElementById('match');
+                match.style.display = 'flex';
+
+            }, 100)
+
+            setTimeout(() => {
+                const match = document.getElementById('match');
+                match.style.display = 'none';
+
+            }, 4000)
+        }
+        else if (password === confirmPass) {
+            userWithEmail();
+
+
+        }
+
+    }
     return (
         <div className='mt-10'>
+            <div id='success' className='w-[200px] hidden h-[35px] top-[86px] left-1/2 lg:left-[500px]
+             absolute items-center font-semibold form-container bg-white justify-evenly  border-[2px] border-[#FF9900] rounded-lg '>
 
-            <form className=' w-[100%] md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto md:h-[1200px]' >
+                <img className='w-[30px]' src={right} alt="" />   <span>Registration Succesful</span>
+
+            </div>
+
+            <form onSubmit={(e) => e.preventDefault()} className=' w-[100%] md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto md:h-[1200px]' >
                 {/* Buttons for social login */}
 
 
@@ -46,27 +125,32 @@ const Register = () => {
                 <label className='text-sm font-bold mx-14 mt-10' htmlFor="Email">WHAT'S YOUR NAME?</label>
                 <div className='flex my-5 items-center'>
                     <p className='h-[50px] flex items-center justify-center w-[10%] border-[1px]'><FontAwesomeIcon className='h-[30px]' icon={faContactBook}></FontAwesomeIcon></p>
-                    <input className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Enter a profile name' type="text" name="name" id="" />
+                    <input onChange={(e) => setName(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Enter a profile name' type="text" name="name" id="" />
                 </div>
                 <p className='text-gray-500 mb-10 ml-[30px]'>This appears on your profile</p>
                 <label className='text-sm font-bold mx-14 my-10' htmlFor="Email">WHAT'S YOUR EMAIL?</label>
                 <div className='flex my-5 items-center'>
                     <p className='h-[50px] flex items-center justify-center w-[10%] border-[1px]'><FontAwesomeIcon className='h-[30px]' icon={faEnvelope}></FontAwesomeIcon></p>
-                    <input className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Enter Your Email' type="email" name="email" id="" />
+                    <input onChange={(e) => setEmail(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Enter Your Email' type="email" name="email" id="" />
                 </div>
                 <label className='text-sm font-bold uppercase mx-14 my-10' htmlFor="Password">CREATE a Password</label>
                 <div className='flex my-5 items-center'>
                     <p className='h-[50px] flex items-center justify-center w-[10%] border-[1px]'><FontAwesomeIcon className='h-[30px] font-semibold' icon={faLock}></FontAwesomeIcon></p>
-                    <input className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Create a Password' type="password" name="password" id="" />
+                    <input onChange={(e) => setPassword(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Create a Password' type="password" name="password" id="" />
                 </div>
                 <label className='text-sm font-bold uppercase mx-14 my-10' htmlFor="Confirm Password">Confirm your Password</label>
                 <div className='flex my-5 items-center'>
                     <p className='h-[50px] flex items-center justify-center w-[10%] border-[1px]'><FontAwesomeIcon className='h-[30px] font-semibold' icon={faLock}></FontAwesomeIcon></p>
-                    <input className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Confirm Your Password' type="password" name="confirm password" id="" />
+                    <input onChange={(e) => setConfirmPass(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' placeholder='Confirm Your Password' type="password" name="confirm password" id="" />
                 </div>
+                <div id='match' className='mx-auto hidden  w-[75%]'>
+                    <img className='w-[20px] h-[20px]' src={wrong} alt="" />
+                    <p className='mx-3 text-red-500'>Password didn't match</p>
+                </div>
+
                 <div className='flex items-center justify-between'>
                     <h1 className='text-center hover:text-red-500'>Forgot Password?</h1>
-                    <button className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>SIGN UP</button>
+                    <button onClick={signUp} className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>SIGN UP</button>
                 </div>
 
 
