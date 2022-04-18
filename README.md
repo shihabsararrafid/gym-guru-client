@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# GYM GURU
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made with one of famous JS library [React](https://github.com/facebook/create-react-app).
+The name of the project is `GYM GURU` as stated above.
+
+It has been hoisted at firebase . By Clicking the Following text will take to the live site of the project.
+[https://gym-guru-86903.web.app/](GYM GURU )
 
 ## Available Scripts
 
