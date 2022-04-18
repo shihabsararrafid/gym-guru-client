@@ -11,6 +11,7 @@ import Footer from './Components/Pages/Shared/Footer/Footer';
 import Register from './Components/Register/Register';
 import Checkout from './Components/Pages/Checkout/Checkout';
 import Confirmation from './Components/Pages/Confirmation/Confirmation';
+import NotFound from './Components/Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/checkout' element={<Checkout></Checkout>}></Route>
         <Route path='/confirmation' element={<Confirmation></Confirmation>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
