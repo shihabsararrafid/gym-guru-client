@@ -37,20 +37,20 @@ const Checkout = () => {
             <h1 className='text-center text-2xl my-10'>Hey , <span className='text-green-700 text-3xl'>RAFID</span> </h1>
             <p className='text-center text-xl block mb-5 text-red-500'>You have selected the follwing package:</p>
 
-            <div className='bg-violet-500 rounded-xl shadow-2xl shadow-violet-100 mx-auto w-[30%] mb-6 border-[2px] '>
+            <div className='bg-violet-500 rounded-xl shadow-2xl shadow-violet-100 mx-auto w-full lg:w-[30%] md:w-[79%] mb-6 border-[2px] '>
                 <h1 className='text-2xl uppercase mb-6 font-semibold text-white text-center'>{selectedItem?.name}</h1>
                 <div className='w-[100%]'>
                     <img className='w-[150px] p-5 bg-white rounded-full block mx-auto' src={selectedItem?.img} alt="" />
                 </div>
                 <p className='p-7 text-white text-justify'>{selectedItem?.deatils}</p>
             </div>
-            <div className='mx-auto w-[30%] mb-14'>
+            <div className='mx-auto w-full lg:w-[30%] md:w-[79%] mb-14'>
                 <p className='text-2xl'>This will cost you <span className='text-4xl text-violet-700'>${selectedItem?.price}</span> /Month</p>
                 <p className='text-xl'>Are you ready to explore ?</p>
 
                 <p className='text-xl flex items-center'>Then <button className='text-center block   w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold ml-5 border-black hover:text-[#6C05F6] hover:border-[#6C05F6] bg-violet-700 hover:bg-white text-white   rounded-full'>Confirm <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button> </p>
             </div>
-            <div className='mx-auto w-[30%] mb-14'>
+            <div className='mx-auto w-full lg:w-[30%] md:w-[79%] mb-14'>
                 <div className='flex items-center justify-center'>
                     <hr className='w-[40%] h-[2px] bg-[#6C05F6]' /><span className='block mx-3 font-bold'>OR</span><hr className='w-[40%] h-[2px] bg-[#6C05F6]' />
                 </div>
