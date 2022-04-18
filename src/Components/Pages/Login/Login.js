@@ -5,7 +5,7 @@ import github from './../../../images/github.png';
 import facebook
     from './../../../images/facebook.png';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../../../firebase.init';
@@ -14,6 +14,9 @@ import right from './../../../images/right.jpg';
 const Login = () => {
     const [wrongmessage, setWrongmessage] = useState('');
     const [email, setEmail] = useState('');
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const [password, setPassword] = useState('');
     const emailLogIn = (e) => {
         e.preventDefault();
@@ -33,6 +36,7 @@ const Login = () => {
                         msg.style.display = 'none';
 
                     }, 9000)
+                    navigate(from, { replace: true });
                 }
                 // ...
             })

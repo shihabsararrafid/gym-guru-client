@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
     const { state } = useLocation();
-    const id = state.id;
+    const id = state?.id;
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('services.json')
@@ -13,7 +13,7 @@ const Checkout = () => {
             .then(data => setServices(data))
     }, [])
     const navigate = useNavigate();
-    const selectedItem = services.find(service => service.id === id);
+    const selectedItem = services.find(service => service?.id === id);
     // setInterval(() => {
     //     const line = document.getElementById('hr-line');
     //     line.style.display = "block";

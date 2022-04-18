@@ -28,12 +28,12 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
 
         <Route path='/checkout' element={
-          <RequireAuth>
-            <Checkout></Checkout>
-          </RequireAuth>}></Route>
+
+          <Checkout></Checkout>
+        }></Route>
 
 
-        <Route path='/confirmation' element={<Confirmation></Confirmation>}></Route>
+        <Route path='/confirmation' element={<RequireAuth><Confirmation></Confirmation></RequireAuth>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
