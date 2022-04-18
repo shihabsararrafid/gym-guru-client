@@ -5,7 +5,7 @@ import goal from './../../../images/about/goal.png';
 import hard from './../../../images/about/struggle.png';
 const About = () => {
     return (
-        <div className='mb-10'>
+        <div className='mb-10 w-[90%]'>
             <div className='grid lg:grid-cols-2 grid-cols-1 items-center justify-around mx-10 w-full'>
 
                 <div>
@@ -21,7 +21,7 @@ const About = () => {
             </div>
             <h1 className='text-violet-600 ml-6 font-bold text-4xl mt-6'>MY INFO:</h1>
             <hr className='w-[160px] h-[2px] mb-7 ml-6 bg-gray-600' />
-            <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-10 mx-5'>
+            <div className='grid md:grid-cols-2 justify-center grid-cols-1 lg:grid-cols-3 gap-10 ml-5 w-[90%]'>
                 <div className='rounded-lg shadow-2xl shadow-gray-400'>
                     <h1 className='text-2xl text-center text-[#6C05F6] uppercase font-bold'>education :</h1>
                     <img className='w-[120px] block mx-auto' src={education} alt="" />
