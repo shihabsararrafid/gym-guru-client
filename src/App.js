@@ -9,6 +9,7 @@ import Login from './Components/Pages/Login/Login';
 import Home from './Components/Pages/Home/Home/Home';
 import Footer from './Components/Pages/Shared/Footer/Footer';
 import Register from './Components/Register/Register';
+import Checkout from './Components/Pages/Checkout/Checkout';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/services' element={<Services></Services>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/checkout' element={<Checkout></Checkout>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
