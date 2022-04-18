@@ -24,6 +24,7 @@ const Login = () => {
     const googleSignIn = (e) => {
         e.preventDefault();
         signInWithGoogle();
+        console.log(user);
         if (user) {
             setTimeout(() => {
                 const msg = document.getElementById('success');
