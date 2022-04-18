@@ -6,9 +6,24 @@ import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CustomLink from '../../../CustomLink/CustomLink';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
+import { signOut } from 'firebase/auth';
+import userPic from './../../../../images/user.png';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const [user, loading, error] = useAuthState(auth);
+    const signingOut = (e) => {
+        e.preventDefault();
+        signOut(auth)
+            .then(() => {
+                console.log('sign out successful');
+            }).catch((error) => {
+                console.log('error occured while signing out');
+            });
+    }
+    console.log(user);
     return (
         <div className={`h-[100px] ${open ? 'h-[200px]' : 'h-[100px]'} bg-black text-white  flex items-center justify-between`}>
             <div className="left-nav flex mx-8 items-center">
@@ -37,9 +52,23 @@ const Header = () => {
                     <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
                 </div>
                 <div className='group'>
-                    <CustomLink className='block hover:text-[#07F31F] box-border duration-700 border-black' to="/login">Login</CustomLink>
-                    <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
+                    {
+                        user ? <button className='block hover:text-red-600 font-bold uppercase box-border duration-700 border-black' onClick={signingOut}>Sign out</button> : <>
+                            <CustomLink className='block hover:text-[#07F31F]  box-border duration-700 border-black' to="/login">Login</CustomLink>
+                            <div className='border-b-2   -translate-x-14  group-hover:translate-x-0  group-hover:border-[#07F31F] duration-700 border-black'></div>
+                        </>
+                    }
+                    {
+                        user ? <div className='flex items-center'>
+                            <p className='text-sm text-violet-600'>{user.displayName.slice(0, 12)}</p>
+                            <div className='w-[70px] rounded-full flex justify-center bg-white'>
+                                <img className='w-[50px]  rounded-full' src={user.pictureURL ? user.pictureURL : userPic} alt="" />
+                            </div>
+                        </div> : ''
+                    }
+
                 </div>
+
             </nav>
             <div className='lg:hidden block '>
                 <FontAwesomeIcon onClick={() => setOpen(!open)} className='w-[40px]' icon={faBars}></FontAwesomeIcon>

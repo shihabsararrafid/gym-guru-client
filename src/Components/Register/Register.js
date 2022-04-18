@@ -31,9 +31,9 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(async res => {
                 if (res) {
-                    console.log(res.user);
+                    // console.log(res.user);
                     await updateProfile({ displayName: name });
-                    console.log(res.user);
+                    // console.log(res.user);
                     setTimeout(() => {
                         const msg = document.getElementById('success');
                         msg.style.display = 'flex';
