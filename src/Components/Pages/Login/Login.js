@@ -4,11 +4,32 @@ import google from './../../../images/google.png';
 import github from './../../../images/github.png';
 import facebook
     from './../../../images/facebook.png';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import auth from '../../../firebase.init';
 
 const Login = () => {
+    let wrongmessage;
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const emailLogIn = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user)
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const message = errorMessage.split('/')[1];
+                wrongmessage = message.slice(0, -2);
+            });
+    }
     return (
         <div className='mt-10'>
 
@@ -27,16 +48,16 @@ const Login = () => {
                 <label className='text-lg font-semibold mx-14 my-10' htmlFor="Email">Email</label>
                 <div className='flex my-5 items-center'>
                     <p className='h-[50px] flex items-center justify-center w-[10%] border-[1px]'><FontAwesomeIcon className='h-[30px]' icon={faEnvelope}></FontAwesomeIcon></p>
-                    <input className='w-[90%] text-xl h-[50px] border-[1px]' type="email" name="" id="" />
+                    <input onChange={(e) => setEmail(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' type="email" name="" id="" />
                 </div>
                 <label className='text-lg font-semibold mx-14 my-10' htmlFor="Password">Password</label>
                 <div className='flex my-5 items-center'>
                     <p className='h-[50px] flex items-center justify-center w-[10%] border-[1px]'><FontAwesomeIcon className='h-[30px] font-semibold' icon={faLock}></FontAwesomeIcon></p>
-                    <input className='w-[90%] text-xl h-[50px] border-[1px]' type="password" name="" id="" />
+                    <input onChange={(e) => setPassword(e.target.value)} className='w-[90%] text-xl h-[50px] border-[1px]' type="password" name="" id="" />
                 </div>
                 <div className='flex items-center justify-between'>
                     <h1 className='text-center hover:text-red-500'>Forgot Password?</h1>
-                    <button className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>LOG IN</button>
+                    <button onClick={emailLogIn} className='px-16 block mr-0 justify-end  w-[90%] lg:w-[60%]   my-6 text-xl py-4 border-2 border-[#6C05F6] font-bold duration-500 bg-[#6C05F6] text-white hover:text-[#6C05F6] hover:border-[#6C05F6] hover:bg-white rounded-full'>LOG IN</button>
                 </div>
 
 
