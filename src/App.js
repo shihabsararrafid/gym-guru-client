@@ -12,6 +12,7 @@ import Register from './Components/Register/Register';
 import Checkout from './Components/Pages/Checkout/Checkout';
 import Confirmation from './Components/Pages/Confirmation/Confirmation';
 import NotFound from './Components/Pages/NotFound/NotFound';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -25,7 +26,13 @@ function App() {
         <Route path='/services' element={<Services></Services>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        <Route path='/checkout' element={<Checkout></Checkout>}></Route>
+
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <Checkout></Checkout>
+          </RequireAuth>}></Route>
+
+
         <Route path='/confirmation' element={<Confirmation></Confirmation>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
