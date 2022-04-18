@@ -7,22 +7,26 @@ It has been hoisted at firebase . By Clicking the Following text will take to th
 [GYM GURU](https://gym-guru-86903.web.app/ )
 
 ## Project Details
+
 * This project is mainly for a ``gym trainer`` who is an independent service provider whose name is Marco.
 * The project has mainly Five route , `Home`,`services`,`blogs`,`about`,`login`. Every route has some sub  route too . The active route will marked by `green colored text`
 * The project use two main authentication system , one is `email password verification` another is `google verification`.
-* 
+* The folder structure of the project is such that firstly there have been created a component folder in src folder . In the component folder there are folder based on page ,depending on the page there are more folder.There are some shared component which has been shared by all the pages such as `HEADER` and `Footer` component .
+* The `confirmation ` route is a `required route` , to access this route one must log in to the account or register to the page.
 
-In the project directory, you can run:
 
-### `npm start`
+## Project Details
+### In this section I will mentioned some of the technolgies I have used in the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### `Tailwind`
+### `React`
+### `Firebase Authentication`
+### `Font Awesome Icon`
+### `React Router Dom`
+### `React Icon`
+### `React Form Hook`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
