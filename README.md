@@ -4,7 +4,7 @@ This project was made with one of famous JS library [React](https://github.com/f
 The name of the project is `GYM GURU` as stated above.
 
 It has been hoisted at firebase . By Clicking the Following text will take to the live site of the project.
-[https://gym-guru-86903.web.app/](GYM GURU )
+[GYM GURU](https://gym-guru-86903.web.app/ )
 
 ## Available Scripts
 
