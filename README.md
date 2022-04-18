@@ -6,7 +6,11 @@ The name of the project is `GYM GURU` as stated above.
 It has been hoisted at firebase . By Clicking the Following text will take to the live site of the project.
 [GYM GURU](https://gym-guru-86903.web.app/ )
 
-## Available Scripts
+## Project Details
+* This project is mainly for a ``gym trainer`` who is an independent service provider whose name is Marco.
+* The project has mainly Five route , `Home`,`services`,`blogs`,`about`,`login`. Every route has some sub  route too . The active route will marked by `green colored text`
+* The project use two main authentication system , one is `email password verification` another is `google verification`.
+* 
 
 In the project directory, you can run:
 
