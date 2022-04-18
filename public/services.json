@@ -26,5 +26,12 @@
         "price": "85",
         "img": "https://i.ibb.co/tZsqQxh/stats.png",
         "deatils": "This is specially for the people who want to  achieve their goal to be fit. To lose weigth it is more important to control the food . In survey , it has been said that losing weight 70-80% dependent on food and rest percentage dependent on exercise. I will provide you the exact food chart as your need."
+    },
+    {
+        "id": "5",
+        "name": "yoga",
+        "price": "85",
+        "img": "https://i.ibb.co/3W6zBb1/exercise.png",
+        "deatils": "In the recent years, yoga has gained a huge following and has increased in popularity. Many people are starting to practice yoga and are seeing the great physical and mental benefits. Yoga practice is a great way to strengthen the bond between your mind and your body."
     }
 ]

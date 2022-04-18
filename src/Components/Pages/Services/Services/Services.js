@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import body from './../../../../images/services/muscles.png';
 import kardio from './../../../../images/services/treadmill.png';
 import dev from './../../../../images/services/exercising-with-gymnastic-ball.png';
 import chart from './../../../../images/services/stats.png';
+import yoga from './../../../../images/services/exercise.png';
+import personal from './../../../../images/services/trainer.png';
+import ServiceDetails from '../ServiceDetails/ServiceDetails';
 const Services = () => {
+    const [services, setServices] = useState([]);
+    useEffect(() => {
+        fetch('services.json')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
     return (
         <div id='services' className='bg-black text-white'>
             <div className='font-semibold p-7'>
@@ -13,7 +22,11 @@ const Services = () => {
             <div>
                 <h1 className='text-5xl mx-10 font-semibold'>Services</h1>
                 <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-10 p-16'>
-                    <div className='bg-white rounded-lg   text-black'>
+                    {
+
+                        services.map(service => <ServiceDetails service={service} key={service.id}></ServiceDetails>)
+                    }
+                    {/* <div className='bg-white rounded-lg   text-black'>
                         <h1 className='uppercase text-center text-violet-700  font-bold py-4'>Body building</h1>
                         <img className='w-[120px] block mx-auto' src={body} alt="" />
                         <p className='p-4  text-justify'>Bodybuilding is the use of progressive resistance exercise to control and develop one's muscles by muscle hypertrophy for aesthetic purposes.I will help you to build your muscle strong.</p>
@@ -44,6 +57,14 @@ const Services = () => {
                         <marquee behavior="" direction=""><h1 className='p-4 font-bold text-violet-700 text-justify'>Price : $85/Month</h1></marquee>
                         <button className='px-16 block mr-0 justify-end  w-[100%]    my-6 text-xl py-4 border-2  font-bold duration-500 bg-[black] text-white hover:text-violet-700 hover:border-violet-700 hover:bg-white rounded-full'>BOOK NOW</button>
                     </div>
+                    <div className='bg-white rounded-lg  text-black'>
+                        <h1 className='uppercase text-violet-700  text-center font-bold py-4'>YOGA</h1>
+                        <img className='w-[120px] block mx-auto' src={yoga} alt="" />
+                        <p className='p-4  text-justify'>In the recent years, yoga has gained a huge following and has increased in popularity. Many people are starting to practice yoga and are seeing the great physical and mental benefits. Yoga practice is a great way to strengthen the bond between your mind and your body.</p>
+                        <marquee behavior="" direction=""><h1 className='p-4 font-bold text-violet-700 text-justify'>Price : $40/Month</h1></marquee>
+                        <button className='px-16 block mr-0 justify-end  w-[100%]    my-6 text-xl py-4 border-2  font-bold duration-500 bg-[black] text-white hover:text-violet-700 hover:border-violet-700 hover:bg-white rounded-full'>BOOK NOW</button>
+                    </div> */}
+
                 </div>
 
             </div>
