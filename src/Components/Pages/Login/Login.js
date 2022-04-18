@@ -21,6 +21,43 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     const [password, setPassword] = useState('');
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const googleSignIn = (e) => {
+        e.preventDefault();
+        signInWithGoogle();
+        if (user) {
+            setTimeout(() => {
+                const msg = document.getElementById('success');
+                msg.style.display = 'flex';
+
+            }, 100)
+
+            setTimeout(() => {
+                const msg = document.getElementById('success');
+                msg.style.display = 'none';
+
+            }, 9000)
+        }
+        if (error) {
+            const newmsg = error.message;
+            const wrmsg = newmsg.split('/')[1];
+
+            setWrongmessage(wrmsg.slice(0, -2));
+            // setTimeout(() => {
+            //     const msg = document.getElementById('wrong');
+            //     msg?.style.display = 'flex';
+
+            // }, 100)
+
+            // setTimeout(() => {
+            //     const msg = document.getElementById('wrong');
+            //     msg?.style.display = 'none';
+
+            // }, 9000)
+            console.log(wrongmessage);
+        }
+    }
+
+
     const emailLogIn = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -83,10 +120,8 @@ const Login = () => {
             <form className='w-[100%] md:w-[500px] login border-2 mb-10 mx-auto rounded-lg h-auto lg:h-[900px]' >
                 <div>
                     <h1 className='font-bold text-center '>To Continue, log in to <span className='text-[#6C05F6]'>GYM GURU</span> </h1>
-                    <button onClick={(e) => {
-                        e.preventDefault();
-                        signInWithGoogle();
-                    }} className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={google} alt="" /> <span>CONTINUE WITH TO GOOGLE</span></button>
+                    <button onClick={googleSignIn}
+                        className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={google} alt="" /> <span>CONTINUE WITH TO GOOGLE</span></button>
                     <button className='text-center flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-[#3764B9] text-white rounded-full'><img className='w-[30px]' src={facebook} alt="" /><span>CONTINUE WITH TO FACEBOOK</span></button>
                     <button className='text-center hover:text-[#6C05F6] hover:border-[#6C05F6] flex items-center justify-evenly  w-[90%] ] mx-auto  my-6 text-lg py-4 border-[1px] font-semibold border-black bg-white text-black rounded-full'><img className='w-[30px]' src={github} alt="" /><span>CONTINUE WITH TO GITHUB</span>
                     </button>
