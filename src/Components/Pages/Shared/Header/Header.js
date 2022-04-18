@@ -61,8 +61,8 @@ const Header = () => {
                     {
                         user ? <div className='flex items-center'>
                             <p className='text-sm text-violet-600'>{user.displayName?.slice(0, 12)}</p>
-                            <div className='w-[70px] rounded-full flex justify-center bg-white'>
-                                <img className='w-[50px]  rounded-full' src={user.pictureURL ? user.pictureURL : userPic} alt="" />
+                            <div className='w-[60px] rounded-full flex justify-center bg-white'>
+                                <img className='w-[50px] p-1  rounded-full' src={user.photoURL ? user.photoURL : userPic} alt="" />
                             </div>
                         </div> : ''
                     }
